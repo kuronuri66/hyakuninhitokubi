@@ -33,9 +33,13 @@ let questionlength = 3;
 let questionlengthNow;
 
 function ChangeQuestion(){
+    if(questionNumber>13){
+        shuffledHaiku = haiku.sort(() => Math.random() - 0.5)
+        questionNumber = 0;
+    }
     questionlengthNow = questionlength;
     questionNumber++
-    answer = shuffledHaiku[questionNumber + 1]
+    answer = shuffledHaiku[questionNumber - 1]
     question = answer.slice(0, questionlength)
     qs("#question").innerHTML = question;
 }
@@ -60,6 +64,12 @@ function ChangeButton(){
     qs("#b2").innerHTML = buttonsArray[2]
     qs("#b3").innerHTML = buttonsArray[3]
     qs("#b4").innerHTML = buttonsArray[4]
+
+    qs("#b0").style.backgroundColor = "white";
+    qs("#b1").style.backgroundColor = "white";
+    qs("#b2").style.backgroundColor = "white";
+    qs("#b3").style.backgroundColor = "white";
+    qs("#b4").style.backgroundColor = "white";
 }
 
 function ClickButton(number){
@@ -78,7 +88,7 @@ function ClickButton(number){
             ChangeButton();
         }
     }else{
-        //ばつ
+        qs(`#b${number}`).style.backgroundColor = "red";
     }
 }
 
