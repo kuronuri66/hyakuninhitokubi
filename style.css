@@ -47,5 +47,12 @@ body{
             font-size: 3dvh;
         }
     }
+
+    #sns{
+        position: absolute;
+        right:0;
+        top:0;
+        padding: 1dvh;
+    }
 }
 
